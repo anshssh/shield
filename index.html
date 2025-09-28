@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Automated Complaint Generation for Waste Management</title>
+    <title>AI-WasteGuard: Smart Waste Management System (Full Project)</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Inter font -->
@@ -12,197 +12,324 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            background-color: #f7f9fc; /* Light blue-gray background */
         }
-        /* Custom gradient for the hero section button */
+        /* Hero button with stronger gradient and lift effect */
         .btn-primary {
-            background-image: linear-gradient(to right, #1d4ed8, #3b82f6);
-            transition: transform 0.2s, box-shadow 0.2s;
+            background-image: linear-gradient(to right, #059669, #10b981); /* Green/Teal gradient */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
         }
-        /* Style for the workflow icons (optional, but adds visual interest) */
-        .workflow-icon {
-            box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.1);
+        /* Custom glow effect for cards */
+        .card-shadow {
+            transition: all 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(5, 150, 105, 0.15);
+        }
+        /* Custom header for high visibility */
+        .tech-header {
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .tech-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #10b981; /* Teal accent */
+            border-radius: 2px;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
-    <!-- Navigation (Simple) -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
+    <!-- Navigation (Sticky and sleek) -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-extrabold text-blue-700 tracking-tight">AI-WasteGuard</h1>
+            <h1 class="text-2xl font-black text-green-600 tracking-wider">AI-WasteGuard</h1>
             <nav class="hidden md:block space-x-8">
-                <a href="#problem" class="text-sm font-medium hover:text-blue-600 transition duration-150">The Challenge</a>
-                <a href="#methodology" class="text-sm font-medium hover:text-blue-600 transition duration-150">How It Works</a>
-                <a href="#results" class="text-sm font-medium hover:text-blue-600 transition duration-150">Impact</a>
+                <a href="#introduction" class="text-base font-medium text-gray-600 hover:text-green-600 transition duration-150">Intro & Problem</a>
+                <a href="#objectives" class="text-base font-medium text-gray-600 hover:text-green-600 transition duration-150">Objectives</a>
+                <a href="#methodology-detail" class="text-base font-medium text-gray-600 hover:text-green-600 transition duration-150">Methodology</a>
+                <a href="#results" class="text-base font-medium text-gray-600 hover:text-green-600 transition duration-150">Results & Analysis</a>
+                <a href="#conclusion" class="text-base font-medium text-gray-600 hover:text-green-600 transition duration-150">Conclusion</a>
             </nav>
         </div>
     </header>
 
-    <!-- 1. Hero Section -->
-    <section class="relative pt-16 pb-32 overflow-hidden bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block py-1 px-3 mb-4 text-sm font-medium text-blue-400 bg-blue-900 rounded-full">VIT-AP ECS Project</span>
+    <!-- 1. Hero Section (Title Slide) -->
+    <section class="relative pt-24 pb-32 overflow-hidden bg-gray-900 text-white">
+        <!-- Visual Layer (AI/Smart City placeholder) -->
+        <img 
+            src="https://placehold.co/1200x500/059669/ffffff?text=AI+Vision+for+Smart+City+Monitoring" 
+            alt="Futuristic AI monitoring city waste" 
+            class="absolute inset-0 w-full h-full object-cover opacity-20 transition duration-500 ease-in-out hover:opacity-30" 
+            onerror="this.onerror=null; this.src='https://placehold.co/1200x500/065f46/ffffff?text=AI+Vision+System'"
+        >
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <span class="inline-block py-2 px-4 mb-4 text-sm font-bold tracking-widest text-white bg-green-500 rounded-full shadow-md">VIT-AP ECS PROJECT</span>
 
-            <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4">
-                AI-Powered Automated Complaint Generation for <span class="text-blue-400">Municipal Waste Management</span>
+            <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                <span class="text-green-400">AI-Powered</span> Automated Complaint Generation
             </h2>
-            <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                Automated, reliable, and scalable 24/7 surveillance to detect illegal dumping and generate real-time, evidence-backed reports for authorities.
+            <p class="text-xl sm:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto">
+                A robust IoT and Computer Vision system designed for Municipal Waste Management.
             </p>
-            <a href="#methodology" class="btn-primary inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white rounded-full shadow-lg hover:shadow-xl">
-                See The Solution
-                <!-- Lucide Arrow Right Icon (Inline SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <a href="#methodology-detail" class="btn-primary inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full shadow-2xl hover:shadow-green-500/50">
+                View Project Details
+                <!-- Lucide Circuit Board Icon (Inline SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M11 9h4a1 1 0 0 0 1-1V5"/><path d="M12 9v11"/><path d="M15 13h-4"/></svg>
             </a>
         </div>
     </section>
 
-    <!-- 2. The Problem Section -->
-    <section id="problem" class="py-20 bg-gray-50">
+    <!-- 2. Introduction & Problem (Slide 1 & 2) -->
+    <section id="introduction" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h3 class="text-sm font-semibold uppercase text-blue-600 mb-2">The Challenge</h3>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Stopping the Rising Issue of Illegal Waste Dumping</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500 mr-3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                        <h4 class="text-xl font-bold">Inefficient Manual Monitoring</h4>
-                    </div>
-                    <p class="text-gray-600">
-                        Manual monitoring of prohibited waste zones is **inconsistent and expensive**, failing to provide the 24/7 coverage required to effectively curb municipal waste dumping in urban areas.
+            <div class="grid md:grid-cols-3 gap-12 items-start"> <!-- Updated to a 3-column layout -->
+                <div class="md:col-span-1">
+                    <h3 class="text-sm font-semibold uppercase text-green-600 mb-2">01 - INTRODUCTION</h3>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Addressing the Urban Waste Crisis</h2>
+                    <p class="text-base text-gray-600 mb-4">
+                        Municipal waste dumping is a **rising issue in urban areas**, often overwhelming existing infrastructure and sanitation efforts.
+                    </p>
+                    <p class="text-base text-gray-600 mb-8">
+                        Our project proposes an IoT + AI-powered automated surveillance system that actively detects garbage dumping, records evidence, and instantly generates complaint reports.
                     </p>
                 </div>
-                <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-yellow-500 mr-3"><path d="M12 2v20M17 5H7l-3 7 3 7h10l3-7z"/></svg>
-                        <h4 class="text-xl font-bold">Lack of Actionable Evidence</h4>
-                    </div>
-                    <p class="text-gray-600">
-                        Without reliable, time-stamped **video and GPS evidence**, enforcement becomes difficult, allowing offenders to evade accountability, which contributes to escalating dumping issues.
-                    </p>
+                <div class="md:col-span-1 flex items-center justify-center">
+                     <img 
+                        src="https://placehold.co/400x300/f59e0b/ffffff?text=Illegal+Dumping+Detected" 
+                        alt="Image illustrating illegal waste dumping problem" 
+                        class="w-full rounded-xl shadow-2xl h-64 object-cover" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x300/d97706/ffffff?text=The+Problem'"
+                    >
+                </div>
+                <div class="md:col-span-1">
+                    <h3 class="text-sm font-semibold uppercase text-red-500 mb-2">THE CHALLENGE</h3>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Inefficient Manual Systems</h2>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl font-extrabold">&rArr;</span>
+                            <p>Manual patrols offer **inconsistent coverage** and fail to provide 24/7 surveillance.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl font-extrabold">&rArr;</span>
+                            <p>Lack of geo-located, time-stamped **irrefutable evidence** makes enforcement challenging.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3 text-xl font-extrabold">&rArr;</span>
+                            <p>High **manpower costs** for passive, round-the-clock surveillance duties.</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Methodology / How It Works Section -->
-    <section id="methodology" class="py-20 bg-white">
+    <!-- 3. Objectives (Slide 3) -->
+    <section id="objectives" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-sm font-semibold uppercase text-green-600 mb-2">02 - PROJECT OBJECTIVES</h3>
+            <h2 class="text-4xl font-extrabold text-gray-900 tech-header inline-block">The Goals of Automation</h2>
+            
+            <div class="mt-10 grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 card-shadow">
+                    <p class="text-3xl font-bold text-green-600 mb-2">1.</p>
+                    <p class="font-semibold text-gray-700">Auto-Complaint Generation</p>
+                    <p class="text-sm text-gray-500 mt-1">Automatically generate and forward complaint reports to municipal authorities.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 card-shadow">
+                    <p class="text-3xl font-bold text-green-600 mb-2">2.</p>
+                    <p class="font-semibold text-gray-700">AI Detection Model</p>
+                    <p class="text-sm text-gray-500 mt-1">Run an AI model (YOLOv5) to reliably detect garbage-dumping actions.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 card-shadow">
+                    <p class="text-3xl font-bold text-green-600 mb-2">3.</p>
+                    <p class="font-semibold text-gray-700">Reliable Evidence Upload</p>
+                    <p class="text-sm text-gray-500 mt-1">Ensure prompt and reliable evidence upload using WiFi as primary and LTE as backup.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 card-shadow">
+                    <p class="text-3xl font-bold text-green-600 mb-2">4.</p>
+                    <p class="font-semibold text-gray-700">Geo-Stamped Data</p>
+                    <p class="text-sm text-gray-500 mt-1">Capture and store video evidence with accurate time and GPS data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Detailed Methodology (Slides 4-9) -->
+    <section id="methodology-detail" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h3 class="text-sm font-semibold uppercase text-blue-600 mb-2">Our Workflow</h3>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Automated Complaint Generation in 4 Steps</h2>
+                <h3 class="text-sm font-semibold uppercase text-green-600 mb-2">03 - METHODOLOGY IN DEPTH</h3>
+                <h2 class="text-4xl font-extrabold text-gray-900 tech-header inline-block">The Integrated IoT + AI System</h2>
             </div>
 
-            <div class="relative flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0">
-                <!-- Connectors for Desktop -->
-                <div class="hidden md:block absolute top-1/4 left-0 right-0 h-1 border-t-2 border-dashed border-gray-300 mx-16"></div>
-
-                <!-- Step 1: Motion Detection -->
-                <div class="w-full md:w-1/4 text-center relative z-10 p-4">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold workflow-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M16 8v8M8 8v8M12 8v8"/></svg>
+            <div class="space-y-16">
+                
+                <!-- Step 1 & 2: PIR Sensor & ESP32-CAM -->
+                <div class="grid md:grid-cols-3 gap-8 items-center bg-gray-50 p-6 rounded-xl card-shadow">
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-bold text-green-700 mb-3">#1: Motion Detection & Video Recording</h4>
+                        <p class="text-gray-700 mb-2">**Hardware:** PIR Sensor + Arduino Uno R3, and ESP32-CAM with microSD slot.</p>
+                        <p class="text-gray-600">
+                            The **PIR sensor** is connected to the Arduino Uno to detect human movement near restricted garbage areas. Upon detection, the Arduino sends a HIGH signal, triggering the **ESP32-CAM** to record a **10-second video clip**. The clip is saved locally to the SD card with an onboard flash LED indicator for feedback.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">1. Motion Trigger</h4>
-                    <p class="text-gray-600">A **PIR sensor** (Arduino Uno) detects human presence near a restricted dumping area and triggers the system.</p>
+                    <img src="https://placehold.co/400x250/10b981/ffffff?text=PIR+%2B+ESP32-CAM+Setup" alt="IoT sensor and camera modules" class="w-full rounded-lg shadow-md h-40 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x250/065f46/ffffff?text=Sensor+Setup'">
                 </div>
 
-                <!-- Step 2: Evidence Capture & GPS -->
-                <div class="w-full md:w-1/4 text-center relative z-10 p-4">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold workflow-icon">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                <!-- Step 3: SIM7670 LTE Module -->
+                <div class="grid md:grid-cols-3 gap-8 items-center bg-gray-50 p-6 rounded-xl card-shadow">
+                    <img src="https://placehold.co/400x250/ef4444/ffffff?text=LTE+%2B+GPS+Tracking" alt="SIM7670 LTE and GPS Module" class="w-full rounded-lg shadow-md h-40 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x250/b91c1c/ffffff?text=GPS+Unit'">
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-bold text-red-700 mb-3">#2: Connectivity and Geolocation</h4>
+                        <p class="text-gray-700 mb-2">**Hardware:** SIM7670 LTE Module with GPS, utilizing AT commands.</p>
+                        <p class="text-gray-600">
+                            The **SIM7670** provides two crucial functions: **GPS coordinates** for geo-tagging the evidence, and **LTE backup** connectivity. This ensures video metadata contains precise location and timestamp, enabling reliable uploads and offline scenario syncing (videos queued in SD and uploaded later).
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">2. Video Evidence</h4>
-                    <p class="text-gray-600">The **ESP32-CAM** records a 10-second clip and the **SIM7670 LTE** module attaches accurate GPS and time data.</p>
                 </div>
 
-                <!-- Step 3: AI Analysis -->
-                <div class="w-full md:w-1/4 text-center relative z-10 p-4">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold workflow-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 20h20"/><path d="M7 16l-3-4 3-4"/></svg>
+                <!-- Step 4: Server & AI -->
+                <div class="grid md:grid-cols-3 gap-8 items-center bg-gray-50 p-6 rounded-xl card-shadow">
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-bold text-purple-700 mb-3">#3: Server-Side Processing & AI Analysis</h4>
+                        <p class="text-gray-700 mb-2">**Software:** Flask Server, Custom AI Model (YOLO/Action Recognition), Telegram Bot API.</p>
+                        <p class="text-gray-600">
+                            The video is uploaded to the **Flask server**. The server runs the AI model to analyze the action. If a **garbage throwing action** is detected, the system auto-files a complaint, integrating with the **Telegram Bot** for instant notification to the admin channel with supporting evidence (photo, time, GPS).
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">3. Cloud Analysis</h4>
-                    <p class="text-gray-600">Video is uploaded to a **Flask server**, where the **YOLOv5 AI model** analyzes the clip for illegal dumping action.</p>
+                    <img src="https://placehold.co/400x250/9333ea/ffffff?text=YOLOv5+Inference+Server" alt="Flask Server and AI model diagram" class="w-full rounded-lg shadow-md h-40 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x250/7e22ce/ffffff?text=Cloud+Process'">
                 </div>
-
-                <!-- Step 4: Complaint Generation -->
-                <div class="w-full md:w-1/4 text-center relative z-10 p-4">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold workflow-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                
+                <!-- Step 5 & 6: Data Set and Training -->
+                 <div class="grid md:grid-cols-3 gap-8 items-center bg-gray-50 p-6 rounded-xl card-shadow">
+                    <img src="https://placehold.co/400x250/2563eb/ffffff?text=Annotated+Data+Set" alt="YOLOv5 bounding boxes on video frame" class="w-full rounded-lg shadow-md h-40 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x250/1e3a8a/ffffff?text=Annotation'">
+                    <div class="md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-3">#4: Dataset Creation & Model Training</h4>
+                        <p class="text-gray-700 mb-2">**Resources:** Custom Video Dataset, LabelImg/Roboflow, YOLOv5, Google Colab (GPU).</p>
+                        <p class="text-gray-600">
+                            We collected video samples of people throwing garbage, extracting and annotating frames using **LabelImg/Roboflow** in YOLO format. The custom dataset (positive/negative samples for person, garbage, throwing action) was used to train the **YOLOv5 model** on Google Colab, achieving an approximate **75–80% detection accuracy** on the exported `best.pt` weights.
+                        </p>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 text-gray-900">4. Auto-Reporting</h4>
-                    <p class="text-gray-600">If confirmed, an automated, evidence-backed **complaint report** is generated and forwarded to authorities via Telegram Bot.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Key Results & Impact Section -->
-    <section id="results" class="py-20 bg-blue-700 text-white">
+    <!-- 5. Key Results & Analysis (Slides 10 & 11) -->
+    <section id="results" class="py-20 bg-green-700 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h3 class="text-sm font-semibold uppercase text-blue-300 mb-2">Our Impact</h3>
-                <h2 class="text-3xl sm:text-4xl font-extrabold">Reliability and Accuracy for Smart City Goals</h2>
+                <h3 class="text-sm font-semibold uppercase text-green-300 mb-2">04 & 05 - RESULTS & ANALYSIS</h3>
+                <h2 class="text-4xl font-extrabold">Prototype Validation and Findings</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <!-- Metric 1: AI Accuracy -->
-                <div class="bg-blue-600 p-8 rounded-xl shadow-xl">
-                    <p class="text-5xl font-extrabold mb-2 text-white">~75-80%</p>
-                    <p class="text-lg font-semibold text-blue-200 mb-2">Detection Accuracy</p>
-                    <p class="text-blue-300 text-sm">Achieved with a custom-trained **YOLOv5** model for garbage dumping actions.</p>
+            
+            <!-- Key Results -->
+            <div class="grid md:grid-cols-3 gap-8 text-center mb-12">
+                <div class="bg-green-600 p-8 rounded-2xl shadow-2xl transition hover:bg-green-500">
+                    <p class="text-5xl font-extrabold mb-2 text-white">~80%</p>
+                    <p class="text-lg font-semibold text-green-100 mb-2">AI Accuracy</p>
+                    <p class="text-green-300 text-sm">Achieved stable detection accuracy on the custom-trained YOLOv5 model.</p>
                 </div>
-                <!-- Metric 2: Connectivity -->
-                <div class="bg-blue-600 p-8 rounded-xl shadow-xl">
-                    <p class="text-5xl font-extrabold mb-2 text-white">24/7</p>
-                    <p class="text-lg font-semibold text-blue-200 mb-2">Reliable Monitoring</p>
-                    <p class="text-blue-300 text-sm">Guaranteed by **WiFi + LTE** backup, ensuring uploads even in poor network conditions.</p>
+                <div class="bg-green-600 p-8 rounded-2xl shadow-2xl transition hover:bg-green-500">
+                    <p class="text-5xl font-extrabold mb-2 text-white">LTE+WiFi</p>
+                    <p class="text-lg font-semibold text-green-100 mb-2">Reliable Connectivity</p>
+                    <p class="text-green-300 text-sm">The WiFi–LTE fallback system successfully improved data transmission reliability.</p>
                 </div>
-                <!-- Metric 3: SD Backup -->
-                <div class="bg-blue-600 p-8 rounded-xl shadow-xl">
-                    <p class="text-5xl font-extrabold mb-2 text-white">100%</p>
-                    <p class="text-lg font-semibold text-blue-200 mb-2">Data Integrity</p>
-                    <p class="text-blue-300 text-sm">Local **SD card backup** ensures videos are queued and uploaded later, preventing data loss.</p>
+                <div class="bg-green-600 p-8 rounded-2xl shadow-2xl transition hover:bg-green-500">
+                    <p class="text-5xl font-extrabold mb-2 text-white">SD Backup</p>
+                    <p class="text-lg font-semibold text-green-100 mb-2">Guaranteed Data Integrity</p>
+                    <p class="text-green-300 text-sm">Local storage queuing ensured videos were never lost, even when offline.</p>
+                </div>
+            </div>
+
+            <!-- Analysis -->
+            <div class="mt-16 bg-white text-gray-800 p-8 rounded-2xl shadow-2xl">
+                <h4 class="text-2xl font-bold mb-4 text-green-700">Project Analysis and Insights</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <p class="font-bold text-lg mb-1 text-green-600">Strengths</p>
+                        <p class="text-sm text-gray-600">Automated, reliable, scalable, and provides a clear audit trail for authorities.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg mb-1 text-red-600">Challenges</p>
+                        <p class="text-sm text-gray-600">Initial challenges included network stability in remote areas, fine-tuning AI accuracy, and managing power needs.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg mb-1 text-blue-600">Key Insight</p>
+                        <p class="text-sm text-gray-600">Implementing the dedicated **WiFi-LTE fallback** with SD queuing was critical to achieving real-world deployment reliability.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Conclusion/Call to Action -->
-    <section class="py-20 bg-gray-50">
+    <!-- 6. Conclusion (Slide 12) & CTA -->
+    <section id="conclusion" class="py-20 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Supporting Smart City Vision</h2>
+            <h3 class="text-sm font-semibold uppercase text-green-600 mb-2">06 - CONCLUSION</h3>
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">A Proven Solution for Smart Cities</h2>
             <p class="text-xl text-gray-600 mb-8">
-                Our prototype proves a scalable and reliable method for waste enforcement. This system **saves manpower, reduces corruption, and provides an auditable trail** for municipal authorities.
+                The **AI-WasteGuard** system demonstrates a functional, end-to-end workflow: **Motion → Video → AI Analysis → Auto-Complaint**. This 24/7 automated monitoring system supports municipal waste enforcement, saves manpower, and aligns perfectly with the smart city vision.
             </p>
-            <a href="mailto:project-team@example.com" class="btn-primary inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white rounded-full shadow-lg hover:shadow-xl">
-                Contact the Team for a Demo
+            <a href="mailto:project-team@example.com" class="btn-primary inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-full shadow-2xl hover:shadow-green-500/50">
+                Contact the Team for Future Development
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (Team and Mentor Slide - Updated for emphasis and links) -->
     <footer class="bg-gray-800 text-white py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="grid md:grid-cols-3 gap-8 border-b border-gray-700 pb-8 mb-8">
-                <div>
-                    <h5 class="text-lg font-semibold mb-2 text-blue-400">Project Team</h5>
-                    <p class="text-sm text-gray-400">Shivansh Shukla, Pamidimarri Ruthwik, B Samuel Richi, Modegama Dhanunjai, Gunisetti Venkata Parthiv, Naman Kumar Sisodiya</p>
+            <div class="grid md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+                
+                <!-- Main Author: Shivansh Shukla (More Emphasis) -->
+                <div class="md:col-span-2 text-center md:text-left p-4 bg-gray-700 rounded-lg shadow-xl">
+                    <h5 class="text-2xl font-extrabold mb-2 text-yellow-400">Project Lead & Author</h5>
+                    <p class="text-lg font-bold text-white mb-2 flex items-center justify-center md:justify-start">
+                        SHIVANSH SHUKLA
+                        <a href="https://www.linkedin.com/in/shivanshvit/" target="_blank" class="ml-2 text-blue-400 hover:text-blue-300">
+                            <!-- LinkedIn Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </p>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Team: Pamidimarri Ruthwik, B Samuel Richi, Modegama Dhanunjai, Gunisetti Venkata Parthiv, Naman Kumar Sisodiya
+                    </p>
                 </div>
-                <div>
-                    <h5 class="text-lg font-semibold mb-2 text-blue-400">Mentor</h5>
-                    <p class="text-sm text-gray-400">Dr. Vivek Shukla, Assistant Professor (Grade-2), VIT-AP University</p>
+
+                <!-- Mentor: Dr. Vivek Shukla -->
+                <div class="md:col-span-1 text-center md:text-left p-4">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Mentor</h5>
+                    <p class="text-base font-medium text-gray-300 mb-1 flex items-center justify-center md:justify-start">
+                        Dr. Vivek Shukla
+                        <a href="https://www.linkedin.com/in/dr-vivek-shukla-a1157479/" target="_blank" class="ml-2 text-blue-400 hover:text-blue-300">
+                            <!-- LinkedIn Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </p>
+                    <p class="text-xs text-gray-500">Assistant Professor (Grade-2)</p>
                 </div>
-                <div>
-                    <h5 class="text-lg font-semibold mb-2 text-blue-400">Affiliation</h5>
+                
+                <!-- Affiliation -->
+                <div class="md:col-span-1 text-center md:text-left p-4">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Affiliation</h5>
                     <p class="text-sm text-gray-400">ECS Department, VIT-AP University, Amaravati</p>
+                    <p class="text-xs text-gray-500">Research Affiliation: KIST</p>
                 </div>
             </div>
-            <p class="text-sm text-gray-500">&copy; 2024 AI-WasteGuard Project. All rights reserved.</p>
+            <p class="text-sm text-gray-500 mt-4">&copy; 2025 AI-WasteGuard Project. All rights reserved.</p>
         </div>
     </footer>
 
